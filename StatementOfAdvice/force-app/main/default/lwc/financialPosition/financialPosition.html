@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="action:new_note" alternative-text="Need Analsis" size="small">
+            </lightning-icon>
+            &nbsp;Need Analysis
+        </h3>
+        <div class="stepTwo slds-hide">
+        <lightning-record-edit-form object-api-name="Needs_Analysis_NA__c">
+            <lightning-messages></lightning-messages>
+            <lightning-output-field field-name="Name" label="NA No"></lightning-output-field>
+            <lightning-input-field field-name="Residential_Property_Owner__c">Residential Property Owner
+            </lightning-input-field>
+            <lightning-input-field field name="Annual_Salary_before_tax__c">Annual Salary before tax c
+            </lightning-input-field>
+            <lightning-input-field field-name="Total_Assets__c" onchange={handleAssetsChange}>Total Assets
+            </lightning-input-field>
+            <lightning-input-field field-name="Total_Liabilities__c" onchange={handleLiabilitiesChange}>Total
+                Liabilities</lightning-input-field>
+            <lightning-input-field field-name="Net_Worth__c" onchange={netWorthValue}>Net Worth</lightning-input-field>
+        </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+    <c-
+</template>

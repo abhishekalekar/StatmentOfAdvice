@@ -1,0 +1,105 @@
+<!-- Statement of Adivce Contact Form -->
+<template>
+
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="action:new_note" alternative-text="Statement of Advice" size="small">
+            </lightning-icon>
+            &nbsp;Statement of Advice
+        </h3>
+        <div>
+            <!-- Progress Indicator for Statement of Advice -->
+            <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+                <lightning-progress-step label="Step 1" value="1"></lightning-progress-step>
+                <lightning-progress-step label="Step 2" value="2"></lightning-progress-step>
+                <lightning-progress-step label="Step 3" value="3"></lightning-progress-step>
+                <lightning-progress-step label="Step 4" value="4"></lightning-progress-step>
+            </lightning-progress-indicator>
+        </div>
+        <div>
+            <lightning-layout class="slds-var-m-around_small" title="Statement of Advice" horizontal-align="spread">
+                <div class="stepOne" style="width: 500px;">
+                    <!-- Contact Form Step 1 For Statement of Advice -->
+                    <lightning-record-edit-form object-api-name=Contact record-id={recordId} title="Statement of Advice"
+                        density="auto">
+                        <lightning-messages> </lightning-messages>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="Name" variant="label-stacked">Name
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="Birthdate" variant="label-stacked">Date of Birth
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="Email" variant="label-stacked">Email
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="Phone" variant="label-stacked">Phone
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="Mobile" variant="label-stacked">Mobile
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="OtherAddress" variant="label-stacked">Address
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12">
+                            <lightning-input-field field-name="MailingAddress" variant="label-stacked">Postal Address
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                    </lightning-record-edit-form>
+                    <lightning-button class="slds-var-m-top_small" label="Next" onclick={goToStepTwo}>
+                    </lightning-button>
+                </div>
+                <div class="stepTwo slds-hide">
+                    <!-- Step 2 Need Analysis -->
+                    <c-financial-position></c-financial-position>
+                    <c-recommed-insurance></c-recommed-insurance>
+
+                    <lightning-button class="slds-var-m-top_small" label="Previous" onclick={goBackToStepOne}>
+                    </lightning-button>
+                    <lightning-button class="slds-var-m-top_small" label="Next" onclick={goToStepThree}>
+                    </lightning-button>
+
+                </div>
+                <div class="stepThree slds-hide">
+                    <!-- Step 3 Financial Advice -->
+                    <section>
+                        
+                            <lightning-datatable
+                                data={data}
+                                columns={columns}
+                                key-field="id"
+                                onrowselection={getSelectedName}
+                            >
+                            </lightning-datatable>
+                        
+                        
+                    </section>
+                    <section>
+                        <lightning-textarea title="Notes Section">
+
+                        </lightning-textarea>
+                    </section>
+                    <lightning-button class="slds-var-m-top_small" label="Previous" onclick={goBackToStepTwo}>
+                    </lightning-button>
+                    <lightning-button class="slds-var-m-top_small" label="Next" type="submit" onclick={goToStepFour}>
+                    </lightning-button>
+                </div>
+
+                <div class="stepFour slds-hide">
+
+                    <lightning-button class="slds-var-m-top_small" label="Previous" onclick={goBackToStepThree}>
+                    </lightning-button>
+                    <lightning-button class="slds-var-m-top_small" label="Finish" type="submit" onclick={handleSave}>
+                    </lightning-button>
+                </div>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+
+</template>

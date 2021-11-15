@@ -1,0 +1,26 @@
+<template>
+    <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+        <lightning-progress-step label="Step 1" value="1"></lightning-progress-step>
+        <lightning-progress-step label="Step 2" value="2"></lightning-progress-step>
+        <lightning-progress-step label="Step 3" value="3"></lightning-progress-step>
+    </lightning-progress-indicator>
+    <div class="stepOne">
+        <lightning-record-edit-form object-api-name="Needs_Analysis_NA__c">
+            <lightning-messages> </lightning-messages>
+            <lightning-input-field field-name="Annual_Salary_before_tax__c">Annual_Salary_before_tax
+            </lightning-input-field>
+
+
+        </lightning-record-edit-form>
+        <lightning-button class="slds-m-top_small" label="Next" onclick={goToStepTwo}></lightning-button>
+    </div>
+    <div class="stepTwo slds-hide">
+
+        <lightning-button class="slds-m-top_small" label="Previous" onclick={goBackToStepOne}></lightning-button>
+        <lightning-button class="slds-m-top_small" label="Next" onclick={goToStepThree}></lightning-button>
+    </div>
+    <div class="stepThree slds-hide">
+        <lightning-button class="slds-m-top_small" label="Previous" onclick={goBackToStepTwo}></lightning-button>
+        <lightning-button class="slds-m-top_small" label="Save" type="submit" onclick={handleSave}></lightning-button>
+    </div>
+</template>
